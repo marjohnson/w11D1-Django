@@ -4,4 +4,7 @@ def index(request):
     return HttpResponse("Welcome our Zoo Database")
 
 def about(request):
-    return HttpResponse("All about our Database")
+    return HttpResponse("About our Project/Application")
+
+def contributors(request):
+    return HttpResponse("This will show who contributed to the project and application")
