@@ -1,7 +1,12 @@
-from django.http import HttpResponse
+from django.shortcuts import render, HttpResponse
 
 def index(request):
-    return HttpResponse("Welcome our Zoo Database")
+    context = {
+        "zooName": "Ninja Zoo",
+        "zooLocation": "H-Town, TX",
+        "zooAnimals": ["Giraffes", "Tigers", "Bears", "Penguins"]
+    }
+    return render(request, "index.html", context)
 
 def about(request):
     return HttpResponse("About our Project/Application")
