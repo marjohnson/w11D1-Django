@@ -16,9 +16,16 @@
         <a href='/contributors/'>Contributors</a>
         <a href='/form/'>Sign up form</a>
     </nav>
-    <form action="/" method='post'>
+    <form action="/form/" method='post'>
         {% csrf_token %}
         <p>Name: <input name='memberName' type='text'></p>
+        <!-- {% for pl in places %}
+        <option value='{{pl}}'>{{pl}}</option>
+        {% endfor %} -->
+        <!-- <select name='places'>
+            <option value="Berwick">Berwick</option>
+            <option value="Houston">Houston</option>
+        </select> -->
         <button type='submit'>Submit</button>
     </form>
 </body>
