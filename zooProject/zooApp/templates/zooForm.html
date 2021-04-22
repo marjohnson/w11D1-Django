@@ -16,9 +16,9 @@
         <a href='/contributors/'>Contributors</a>
         <a href='/form/'>Sign up form</a>
     </nav>
-    <form action="/form/" method='post'>
+    <form action="/add-new/" method='post'>
         {% csrf_token %}
-        <p>Name: <input name='memberName' type='text'></p>
+        <p>Name: <input name='memberName' id='memberName' type='text'></p>
         <!-- {% for pl in places %}
         <option value='{{pl}}'>{{pl}}</option>
         {% endfor %} -->

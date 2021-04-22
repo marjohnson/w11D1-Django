@@ -41,15 +41,18 @@ def test(request):
 #     return render(request, 'results.html')
 
 def form(request):
-    if request.method =='GET':
-        return render(request, 'zooForm.html')
-    request.session['memberName'] = {
+    return render(request, 'zooForm.html')
+
+def newMembers(request):
+    if request.method == 'GET':
+        return redirect('/form/')
+    request.session['results'] = {
         'memberName': request.POST['memberName'],
     }
-    return redirect('/results/')
+    return redirect('/results')
 
 def results(request):
     context = {
-        'memberName': request.session['memberName'],
+        'results': request.session['results'],
     }
     return render(request, 'results.html', context)

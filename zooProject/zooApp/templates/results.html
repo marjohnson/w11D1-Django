@@ -9,7 +9,15 @@
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
 </head>
 <body>
+    <nav>
+        <a href='/'>Home</a>
+        <a href='/test/'>Test page</a>
+        <a href='/about/'>About Page</a>
+        <a href='/contributors/'>Contributors</a>
+        <a href='/form/'>Sign up form</a>
+    </nav>
     <h1>New Member Names:</h1>
-    <p>Member's Name: {{request.session.memberName}}</p>
+    <p>Member's Name: {{ results.memberName }}</p>
+    <a href='/form/'>Back to form</a>
 </body>
 </html>
