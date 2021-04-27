@@ -10,4 +10,5 @@ urlpatterns = [
     path('form/', views.form),
     path('add-new/', views.newMembers),
     path('results/', views.results),
+    path('the-shop/', views.theShop),
 ]

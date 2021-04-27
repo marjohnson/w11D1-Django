@@ -1,9 +1,11 @@
 from django.shortcuts import render, HttpResponse, redirect
 
-PLACES = (
-    'Berwick',
-    'Houston'
-)
+TICKETS = {
+    "souvenirs": (4,9),
+    "food": (2,7),
+    "tShirts": (10,20),
+    "stuffedAnimals": (5,15),
+}
 
 def index(request):
     context = {
@@ -56,3 +58,10 @@ def results(request):
         'results': request.session['results'],
     }
     return render(request, 'results.html', context)
+
+def theShop(request):
+    return render(request, 'theNinjaShop.html')
+
+def purchase(request):
+    if request.method == 'GET':
+        return redirect('/the-shop/')
