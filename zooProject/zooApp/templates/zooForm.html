@@ -20,13 +20,6 @@
     <form action="/add-new/" method='post'>
         {% csrf_token %}
         <p>Name: <input name='memberName' id='memberName' type='text'></p>
-        <!-- {% for pl in places %}
-        <option value='{{pl}}'>{{pl}}</option>
-        {% endfor %} -->
-        <!-- <select name='places'>
-            <option value="Berwick">Berwick</option>
-            <option value="Houston">Houston</option>
-        </select> -->
         <button type='submit'>Submit</button>
     </form>
 </body>
