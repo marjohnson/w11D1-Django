@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo App</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+    <h1>Welcome to our Zoo Application!</h1>
+    <nav>
+        <a href='/'>Home</a>
+        <a href='/test/'>Test page</a>
+        <a href='/about/'>About Page</a>
+        <a href='/contributors/'>Contributors</a>
+        <a href='/form/'>Sign up form</a>
+        <a href='/the-shop'>The Ninja Shop</a>
+    </nav>
+    <img src="{% static 'images/dojoNinja.png' %}" alt="Coding Dojo Ninja" />
+    <h2>Welcome to {{zooName}}, we are located in {{zooLocation}}</h2>
+    <h4>We have the following animals here:</h4>
+    <ul>
+        {% for animals in zooAnimals %}
+            <li>{{animals}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
