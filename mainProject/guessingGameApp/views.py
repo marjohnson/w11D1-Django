@@ -2,8 +2,16 @@ from django.shortcuts import render, redirect
 
 count = 1
 
+FOOTER = {
+    'Created by Amazon Career Choice Houston Class',
+    '© 2021'
+}
+
 def gameHome(request):
-    return render(request, 'game.html')
+    context = {
+        'footer': FOOTER
+    }
+    return render(request, 'game.html', contextß)
     count = 1
     request.session.flush()
 
