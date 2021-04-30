@@ -11,7 +11,7 @@ def gameHome(request):
     context = {
         'footer': FOOTER
     }
-    return render(request, 'game.html', contextß)
+    return render(request, 'game.html', context)
     count = 1
     request.session.flush()
 
@@ -44,6 +44,7 @@ def game(request):
         "user2": request.session['username2'],
         "number_range": request.session['number_range'],
         "current_user":request.session['current_user'],
+        'footer': FOOTER
     }
 
     return render(request,"thegame.html",context)
@@ -73,6 +74,7 @@ def results(request):
     context = {
         "results": request.session['results'],
         "game_over": request.session['game_over'],
+        'footer': FOOTER
     }
     return render(request,"gameResults.html",context)
 

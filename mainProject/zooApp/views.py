@@ -9,12 +9,18 @@ TICKETS = {
     "stuffedAnimals": (5,15),
 }
 
+FOOTER = {
+    'Created by Amazon Career Choice Houston Class',
+    '© 2021'
+}
+
 # main landing page
 def zoo(request):
     context = {
         "zooName": "Ninja Zoo",
         "zooLocation": "H-Town, TX",
-        "zooAnimals": ["Giraffes", "Tigers", "Bears", "Penguins"]
+        "zooAnimals": ["Giraffes", "Tigers", "Bears", "Penguins"],
+        'footer': FOOTER
     }
     return render(request, "zoo.html", context)
     
@@ -22,7 +28,10 @@ def zoo(request):
 
 # main form page to add new member
 def form(request):
-    return render(request, 'zooForm.html')
+    context = {
+        'footer': FOOTER
+    }
+    return render(request, 'zooForm.html', context)
 
 # route to actually add a new member
 def newMembers(request):
@@ -37,6 +46,7 @@ def newMembers(request):
 def results(request):
     context = {
         'results': request.session['results'],
+        'footer': FOOTER
     }
     return render(request, 'results.html', context)
 
@@ -44,7 +54,10 @@ def results(request):
 def theShop(request):
     if not "price" in request.session:
         request.session['price'] = 0
-    return render(request, 'theNinjaShop.html')
+    context = {
+        'footer': FOOTER
+    }
+    return render(request, 'theNinjaShop.html', context)
 
 # clear shop total earned
 def reset(request):

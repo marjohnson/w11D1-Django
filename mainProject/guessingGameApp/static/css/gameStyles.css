@@ -56,5 +56,8 @@ body .main form button {
   background-color: darkcyan;
 }
 body footer {
-  border: 3px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

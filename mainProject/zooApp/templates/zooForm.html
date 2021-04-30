@@ -17,10 +17,17 @@
             <a href='/zooApp/the-shop/'>The Ninja Shop</a>
         </nav>
     </header>
-    <form action="/zooApp/add-new/" method='post'>
-        {% csrf_token %}
-        <p>Name: <input name='memberName' id='memberName' type='text'></p>
-        <button type='submit'>Submit</button>
-    </form>
+    <div class='main'>
+        <form action="/zooApp/add-new/" method='post'>
+            {% csrf_token %}
+            <p>Name: <input name='memberName' id='memberName' type='text'></p>
+            <button type='submit'>Submit</button>
+        </form>
+    </div>
+    <footer>
+        {% for p in footer %}
+        <p>{{p}}</p>
+        {% endfor %}
+    </footer>
 </body>
 </html>
