@@ -1,0 +1,96 @@
+body {
+    background-color: darkcyan;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        nav {
+            margin: 1em;
+
+            a {
+                padding: 1em;
+                color: white;
+                text-decoration: none;
+            }
+        }        
+    }
+
+    .jquery {
+        nav {
+            a {
+                display: none;
+            }
+        }
+        .magic {
+            margin: 1em;
+        }
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 20%;
+        }
+
+        .apps {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .theApp {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 5px groove cyan;
+                margin: 1em;
+                padding: 1em;
+                width: 250px;
+                text-align: center;
+
+                button {
+                    background-color: cyan;
+                }
+            }
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .imgs {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 10%;
+                }
+            }
+            button {
+                margin: 1em;
+            }
+        }
+    }
+
+    footer {
+        border: 3px solid black;
+    }
+}

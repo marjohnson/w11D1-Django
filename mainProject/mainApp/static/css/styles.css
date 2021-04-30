@@ -1,0 +1,79 @@
+body {
+  background-color: darkcyan;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body header nav {
+  margin: 1em;
+}
+body header nav a {
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+}
+body .jquery nav a {
+  display: none;
+}
+body .jquery .magic {
+  margin: 1em;
+}
+body .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .main img {
+  width: 20%;
+}
+body .main .apps {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body .main .apps .theApp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px groove cyan;
+  margin: 1em;
+  padding: 1em;
+  width: 250px;
+  text-align: center;
+}
+body .main .apps .theApp button {
+  background-color: cyan;
+}
+body .main section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .main section .imgs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body .main section .imgs img {
+  width: 10%;
+}
+body .main section button {
+  margin: 1em;
+}
+body footer {
+  border: 3px solid black;
+}
