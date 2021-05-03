@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results Page</title>
+    <title>Ninja Zoo Animals</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/zooStyles.css' %}">
 </head>
@@ -19,14 +19,14 @@
         </nav>
     </header>
     <div class='main'>
-        <h1>New Member Names:</h1>
-        <p>Member's Name: {{ results.memberName }}</p>
-        <a href='/zooApp/form/'>Back to form</a>
+        <h2>Meet all our Animals</h2>
+        <div class='animals'>
+            {% for animals in allAnimals %}
+            <div class='animal'>
+
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    <footer>
-        {% for p in footer %}
-        <p>{{p}}</p>
-        {% endfor %}
-    </footer>
 </body>
 </html>

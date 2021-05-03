@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 import random
+# import .models import Animals
 
 # These are our categories and their min/max ticket prices
 TICKETS = {
@@ -78,3 +79,10 @@ def purchase(request):
 
     request.session['price'] += currTotal
     return redirect('/zooApp/the-shop/')
+
+# Display our newly added Animals
+def animals(request):
+    context = {
+        "allAnimals": Animals.objects.all()
+    }
+    return render(request, 'animals.html', context)
