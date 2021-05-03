@@ -55,3 +55,5 @@ Those are the basic steps to get things started after this is up to you and what
 python3 manage.py createsuperuser
 
 follow prompts
+start server and navigate to localhost:8000/admin
+log in and view users
