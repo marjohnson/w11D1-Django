@@ -83,6 +83,6 @@ def purchase(request):
 # Display our newly added Animals
 def animals(request):
     context = {
-        "allAnimals": Animals.objects.all()
+        "allAnimals": Animals.objects.all().values()
     }
     return render(request, 'animals.html', context)
