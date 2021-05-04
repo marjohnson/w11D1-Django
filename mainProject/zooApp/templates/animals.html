@@ -23,7 +23,9 @@
         <div class='animals'>
             {% for animals in allAnimals %}
             <div class='animal'>
-                {{animal.animalName}}
+                <h3>{{animals.animalName}}</h3>
+                <p>{{animals.animalType}}</p>
+                <p>{{animals.animalBirth}}</p>
             </div>
             {% endfor %}
         </div>

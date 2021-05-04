@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 import random
-# import .models import Animals
+from .models import Animals
 
 # These are our categories and their min/max ticket prices
 TICKETS = {
