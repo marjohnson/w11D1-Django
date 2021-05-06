@@ -86,3 +86,17 @@ def animals(request):
         "allAnimals": Animals.objects.all().values()
     }
     return render(request, 'animals.html', context)
+
+def addAnimal(request):
+    return render(request, 'newAnimals.html')
+
+def create(request):
+    if request.method == 'GET':
+        return redirect('zooApp/addAnimal/')
+    Animals.objects.create(
+        animalName=request.POST['animalName'],
+        animalType=request.POST['animalType'],
+        animalBirth=request.POST['animalBirth']
+    )
+
+    return redirect('/zooApp/animals/')

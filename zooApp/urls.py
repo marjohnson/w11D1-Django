@@ -11,4 +11,6 @@ urlpatterns = [
     path('reset/', views.reset),
     path('purchase/', views.purchase),
     path('animals/', views.animals),
+    path('addNew/', views.addAnimal),
+    path('create/', views.create),
 ]
