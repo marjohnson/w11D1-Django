@@ -1,16 +1,25 @@
-body {
-    background-color: darkcyan;
-    color: black;
+.flexcolumn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+body {
+    background-color: darkcyan;
+    color: black;
+    .flexcolumn();
 
     header {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        .flexcolumn();
 
         nav {
             margin: 1em;
@@ -35,27 +44,18 @@ body {
     }
 
     .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        .flexcolumn();
 
         img {
             width: 20%;
         }
 
         .apps {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+            .flexrow();
             flex-wrap: wrap;
 
             .theApp {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                .flexcolumn();
                 border: 5px groove cyan;
                 margin: 1em;
                 padding: 1em;
@@ -69,16 +69,10 @@ body {
         }
 
         section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            .flexcolumn();
 
             .imgs {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
+                .flexrow();
 
                 img {
                     width: 10%;
@@ -88,12 +82,27 @@ body {
                 margin: 1em;
             }
         }
+
+        ul {
+            .flexcolumn();
+            margin: 1em;
+
+            li {
+                align-self: flex-start;
+            }
+        }
+
+        form {
+            .flexrow();
+            margin: 1em;
+
+            label, input, button {
+                margin: .3em;
+            }
+        }
     }
 
     footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        .flexcolumn();
     }
 }

@@ -1,3 +1,15 @@
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 body {
   background-color: darkcyan;
   color: black;
@@ -73,6 +85,28 @@ body .main section .imgs img {
 }
 body .main section button {
   margin: 1em;
+}
+body .main ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+body .main ul li {
+  align-self: flex-start;
+}
+body .main form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+body .main form label,
+body .main form input,
+body .main form button {
+  margin: 0.3em;
 }
 body footer {
   display: flex;

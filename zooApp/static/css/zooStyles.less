@@ -1,16 +1,23 @@
-body {
-    background-color: green;
-    color: black;
+.flexcolumn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: green;
+    color: black;
+    .flexcolumn();
 
     header {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        .flexcolumn();
 
         nav {
             margin: 1em;
@@ -24,27 +31,34 @@ body {
     }
 
     .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        .flexcolumn();
 
         .animals {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+            .flexrow();
             flex-wrap: wrap;
 
             .animal {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                .flexcolumn();
                 border: 3px groove #19b619;
                 background-color: #19b619;
                 margin: .5em;
                 padding: .5em;
+            }
+        }
+        form {
+            .flexcolumn();
+            margin: 1em;
+
+            section {
+                .flexrow();
+                margin: .5em;
+
+                label {
+                    margin: .3em;
+                }
+                input {
+                    margin: .3em;
+                }
             }
         }
     }

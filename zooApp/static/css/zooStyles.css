@@ -1,3 +1,15 @@
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 body {
   background-color: green;
   color: black;
@@ -42,6 +54,26 @@ body .main .animals .animal {
   background-color: #19b619;
   margin: 0.5em;
   padding: 0.5em;
+}
+body .main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+body .main form section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em;
+}
+body .main form section label {
+  margin: 0.3em;
+}
+body .main form section input {
+  margin: 0.3em;
 }
 body footer {
   display: flex;
