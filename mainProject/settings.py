@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mainApp',
     'zooApp',
     'guessingGameApp',
+    'officalZooApp',
 ]
 
 MIDDLEWARE = [

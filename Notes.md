@@ -25,7 +25,7 @@ shop-zoo = many to many
 Class:
 zoo - zooName zooLocation
 animal - animalType animalName animalBirthday
-animal-zoo - assign animals to a zoo via edit
+animal-zoo - assign animals to a zoo while adding animal
 employee - firstName lastName email
 employee-zoo assign employee to specific zoo while adding employee
 shop - shopName shopDescription

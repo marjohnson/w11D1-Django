@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('mainApp.urls')),
     path('zooApp/', include('zooApp.urls')),
     path('gameApp/', include('guessingGameApp.urls')),
+    path('zoo/', include('officalZooApp.urls')),
     path('admin/', admin.site.urls),
 ]
