@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .models import *
 
 def officialZoo(request):
     return render(request, 'officialZoo.html')
@@ -11,12 +12,12 @@ def allZoos(request):
 
 def createZoo(request):
     if request.method == "GET":
-        return redirect('/zoo/addZoo/')
+        return redirect('/zoo/createZoo/')
     Zoo.objects.create(
         zooName=request.POST['zooName'],
-        zooDescription=request.POST['zooDescription']
+        zooLocation=request.POST['zooLocation']
     )
-    return redirect('/zoo/zoos/')
+    return redirect('/zoo/theZoos/')
 
 def editZoo(request, zoo_id):
     oneZoo = Zoo.objects.get(id='zoo_id')
@@ -31,10 +32,10 @@ def updateZoo(request, zoo_id):
     toUpdate.zooLocation = request.POST['zooLocation']
     toUpdate.save()
 
-    return redirect('/zoo/zoos/')
+    return redirect('/zoo/theZoos/')
 
 def deleteZoo(request, zoo_id):
     toDelete = Zoo.objects.get(id=zoo_id)
     toDelete.delete()
 
-    return redirect('/zoo/zoos/')
+    return redirect('/zoo/theZoos/')
