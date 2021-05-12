@@ -32,3 +32,24 @@ shop - shopName shopDescription
 shop-zoo - allow to add different shops to multiple zoos
 
 Eventually we will add organizer/owner pages where they can log in and manipulate what is at each zoo
+
+
+Relationship Examples and where to put them
+
+here is a 1 to many:
+Each manuafacturer can have many cars but 1 car can only have one manufacturer
+class Manufacturer:
+    name
+
+class Car:
+    type
+    manufacturer foreignKey
+
+here is a many to many:
+Pizza's can have many toppings and many pizzas can have different toppings
+
+class Topping:
+    toppingName
+
+class Pizza:
+    toppings  manytomany
