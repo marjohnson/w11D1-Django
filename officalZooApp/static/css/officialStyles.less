@@ -1,0 +1,102 @@
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    .flexcolumn();
+    background-color: #5f9ea0;
+    color: #000;
+
+    header {
+        .flexcolumn();
+        background-color: #84e2e6b7;
+        margin: 1em;
+        padding: 1em;
+
+        nav {
+            .flexrow();
+
+            a {
+                color: #4b4848;
+                text-decoration: none;
+                padding: .5em;
+            }
+        }
+    }
+    .main {
+        .flexcolumn();
+
+        .all {
+            .flexrow();
+            flex-wrap: wrap;
+
+            .one {
+                .flexcolumn();
+                background-color: #84e2e6b7;
+                margin: .5em;
+                padding: 1em;
+                border: 3px groove #5f9ea0;
+
+                a {
+                    color: #4b4848;
+                    text-decoration: none;
+                    padding: .5em;
+                }
+            }
+        }
+        .list {
+            .flexcolumn();
+
+            .zoo {
+                .flexcolumn();
+
+                .all {
+                    .flexrow();
+                    flex-wrap: wrap;
+        
+                    .one {
+                        .flexcolumn();
+                        background-color: #84e2e6b7;
+                        margin: .5em;
+                        padding: 1em;
+                        border: 3px groove #5f9ea0;
+        
+                        a {
+                            color: #4b4848;
+                            text-decoration: none;
+                            padding: .5em;
+                        }
+                    }
+                }
+            }
+        }
+        .add {
+            .flexcolumn();
+            margin: 1em;
+
+            form {
+                .flexcolumn();
+
+                .row {
+                    .flexrow();
+                    
+                    label {
+                        margin: 1em;
+                    }
+                }
+                button {
+                    background-color: #84e2e6b7;
+                }
+            }
+        }
+    }
+}

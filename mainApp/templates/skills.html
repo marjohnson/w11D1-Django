@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Skills</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static '/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the {{welcome}}</h1>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/jquery/'>jQuery Fun</a>
+            <a href='/skills/'>Skills we have learned</a>
+            <a href='/admin/'>Admin Panel</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <ul>
+            Here are the skills we have learned at Coding Dojo
+            {% for skill in skills %}
+            <li>{{skill.skillName}}</li>
+            {% endfor %}
+        <ul>
+        <form action='/addSkill/' method='post'>
+            {% csrf_token %}
+            <label for='skillName'>Skill Name:</label>
+            <input type='text' id='skillName' name='skillName'>
+            <button>Add New Skill</button>
+        </form>
+    </div>
+    <footer>
+        {% for p in footer %}
+        <p>{{p}}</p>
+        {% endfor %}
+    </footer>
+</body>
+</html>

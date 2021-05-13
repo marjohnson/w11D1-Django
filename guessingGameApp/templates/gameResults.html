@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Results</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static '/css/gameStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Main Project Home</a>
+            <a href='/gameApp/'>Game Home</a>
+        </nav>
+    </header>
+    <div class='main'>
+        {{results}}
+        {% if game_over == False%}
+        <p>Try again with 1/2 the numbers</p>
+        <a href="/gameApp/splitOdds">Split Odds</a>
+        {% endif%}
+        {% if game_over == True %}
+        <a href='/gameApp/clearGame'>Start New Game</a>
+        {% endif %}
+    </div>
+    <footer>
+        {% for p in footer %}
+        <p>{{p}}</p>
+        {% endfor %}
+    </footer>
+</body>
+</html>

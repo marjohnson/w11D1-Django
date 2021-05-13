@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Animals</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/zooStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Main Project Home</a>
+            <a href='/zooApp/'>Zoo Home</a>
+            <a href='/zooApp/form/'>Become a Member</a>
+            <a href='/zooApp/the-shop/'>The Ninja Shop</a>
+            <a href='/zooApp/animals/'>Meet the Animals</a>
+            <a href='/zooApp/addNew/'>Add a New Animal</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <form action='/zooApp/create/' method='post'>
+            {% csrf_token %}
+            <section>
+                <label for='animalName'>Animals Name</label>
+                <input type='text' id='animalName' name='animalName'>
+            </section>
+            <section>
+                <label for='animalType'>Animal Species</label>
+                <input type='text' id='animalType' name='animalType'>
+            </section>
+            <section>
+                <label for='animalBirth'>Animals Birthday</label>
+                <input type='date' id='animalBirth' name='animalBirth'>
+            </section>
+            <button>Add Animal</button>
+        </form>
+    </div>
+</body>
+</html>

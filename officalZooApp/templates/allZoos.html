@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Zoos</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Website Home</a>
+            <a href='/zoo/'>Zoo Home</a>
+            <a href='/zoo/theZoos/'>All Zoos</a>
+            <a href='/zoo/theAnimals/'>All Animals</a>
+            <a href='/zoo/theEmployees/'>Employee's</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <h3>Here is a list of all our Zoo's</h3>
+        <div class='all'>
+            {% for zoo in zoos %}
+            <section class='one'>
+                <h4>{{zoo.zooName}}</h4>
+                <h5>{{zoo.zooLocation}}</h5>
+                <a href='/zoo/{{zoo.id}}/editZoo/'>Edit Zoo</a>
+            </section>
+            {% endfor %}
+        </div>
+        <div class='add'>
+            <form action='/zoo/createZoo/' method='post'>
+                {% csrf_token %}
+                <section class='row'>
+                    <label for='zooName'>Name of Zoo: </label>
+                    <input type='text' id='zooName' name='zooName'>
+                </section>
+                <section class='row'>
+                    <label for='zooLocation'>Location of Zoo: </label>
+                    <input type='text' id='zooLocation' name='zooLocation'>
+                </section>
+                <button>Add New Zoo</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+</body>
+</html>
