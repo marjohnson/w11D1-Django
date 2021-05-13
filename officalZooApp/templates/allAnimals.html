@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Animals</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Website Home</a>
+            <a href='/zoo/'>Zoo Home</a>
+            <a href='/zoo/theZoos/'>All Zoos</a>
+            <a href='/zoo/theAnimals/'>All Animals</a>
+        </nav>
+    </header>
+    <div class='main'>
+        {% for animal in allAnimals %}
+        <section>
+            <h4>{{animal.animalName}}</h4>
+            <h5>{{animal.animalType}}</h5>
+            <h5>{{animal.animalBirth}}</h5>
+            <p>{{animal.animalZoo}}</p>
+        </section>
+        {% endfor %}
+        <div class='addNew'>
+            <form action='/zoo/createAnimal/' method='post'>
+                {% csrf_token %}
+                <section>
+                    <label for='animalName'>Animal Name: </label>
+                    <input type='text' id='animalName' name='animalName'>
+                </section>
+                <section>
+                    <label for='animalType'>Animal Type: </label>
+                    <input type='text' id='animalType' name='animalType'>
+                </section>
+                <section>
+                    <label for='animalBirth'>Animal BirthDay: </label>
+                    <input type='date' id='animalBirth' name='animalBirth'>
+                </section>
+                <select name='zoo_id' id='zoo_id'>
+                    {% for zoo in allZoos %}
+                    <option value='{{zoo.id}}'>{{zoo.zooName}}</option>
+                    {% endfor %}
+                </select>
+                <button>Add New Animal</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

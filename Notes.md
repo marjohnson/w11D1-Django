@@ -37,7 +37,7 @@ Eventually we will add organizer/owner pages where they can log in and manipulat
 Relationship Examples and where to put them
 
 here is a 1 to many:
-Each manuafacturer can have many cars but 1 car can only have one manufacturer
+Each manufacturer can have many cars but 1 car can only have one manufacturer
 class Manufacturer:
     name
 
