@@ -18,17 +18,17 @@
         </nav>
     </header>
     <div class='main'>
-        <div class='allZoos'>
-            <h3>Here is a list of all our Zoo's</h3>
+        <h3>Here is a list of all our Zoo's</h3>
+        <div class='all'>
             {% for zoo in allZoos %}
-            <section>
+            <section class='one'>
                 <h4>{{zoo.zooName}}</h4>
                 <h5>{{zoo.zooLocation}}</h5>
                 <a href='/zoo/{{zoo.id}}/editZoo/'>Edit Zoo</a>
             </section>
             {% endfor %}
         </div>
-        <div class='addZoo'>
+        <div class='add'>
             <form action='/zoo/createZoo/' method='post'>
                 {% csrf_token %}
                 <section class='row'>

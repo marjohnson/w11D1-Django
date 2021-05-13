@@ -11,4 +11,7 @@ urlpatterns = [
     path('<int:zoo_id>/deleteZoo/', views.deleteZoo),
     path('theAnimals/', views.allAnimals),
     path('createAnimal/', views.createAnimal),
+    path('<int:animal_id>/editAnimal/', views.editAnimal),
+    path('<int:animal_id>/updateAnimal/', views.updateAnimal),
+    path('<int:animal_id>/deleteAnimal/', views.deleteAnimal),
 ]

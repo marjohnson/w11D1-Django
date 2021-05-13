@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Animals</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
 </head>
 <body>
     <header>
@@ -16,37 +18,48 @@
         </nav>
     </header>
     <div class='main'>
-        {% for animal in allAnimals %}
-        <section>
-            <h4>{{animal.animalName}}</h4>
-            <h5>{{animal.animalType}}</h5>
-            <h5>{{animal.animalBirth}}</h5>
-            <p>{{animal.animalZoo}}</p>
-        </section>
-        {% endfor %}
-        <div class='addNew'>
+        <div class='all'>
+            {% for animal in allAnimals %}
+            <section class='one'>
+                <h4>{{animal.animalName}}</h4>
+                <h5>{{animal.animalType}}</h5>
+                <h5>{{animal.animalBirth}}</h5>
+                {% for zoo in allZoos %}
+                <p>{{zoo.zooName}}</p>
+                {% endfor %}
+                <a href='/zoo/{{animal.id}}/editAnimal/'>Edit Animal</a>
+            </section>
+            {% endfor %}
+        </div>
+        <div class='add'>
             <form action='/zoo/createAnimal/' method='post'>
                 {% csrf_token %}
-                <section>
+                <section class='row'>
                     <label for='animalName'>Animal Name: </label>
                     <input type='text' id='animalName' name='animalName'>
                 </section>
-                <section>
+                <section class='row'>
                     <label for='animalType'>Animal Type: </label>
                     <input type='text' id='animalType' name='animalType'>
                 </section>
-                <section>
+                <section class='row'>
                     <label for='animalBirth'>Animal BirthDay: </label>
                     <input type='date' id='animalBirth' name='animalBirth'>
                 </section>
-                <select name='zoo_id' id='zoo_id'>
-                    {% for zoo in allZoos %}
-                    <option value='{{zoo.id}}'>{{zoo.zooName}}</option>
-                    {% endfor %}
-                </select>
+                <section class='row'>
+                    <label for='animalZoo'>Select the Zoo: </label>
+                    <select name='zoo_id' id='zoo_id'>
+                        {% for zoo in allZoos %}
+                        <option value='{{zoo.id}}'>{{zoo.zooName}}</option>
+                        {% endfor %}
+                    </select>
+                </section>
                 <button>Add New Animal</button>
             </form>
         </div>
     </div>
+    {% for animal in allAnimals %}
+    {{animal.zoo_id}}
+    {% endfor %}
 </body>
 </html>

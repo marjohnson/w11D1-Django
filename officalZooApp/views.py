@@ -66,3 +66,30 @@ def createAnimal(request):
         animalZoo=animalZoo
     )
     return redirect('/zoo/theAnimals/')
+
+# Landing page to edit 1 animal
+def editAnimal(request, animal_id):
+    oneAnimal = Animal.objects.get(id=animal_id)
+    context = {
+        'editAnimal': oneAnimal,
+        'allZoos': Zoo.objects.all().values(),
+    }
+    return render(request, 'editAnimal.html', context)
+
+# Hidden route to update zoo
+def updateAnimal(request, animal_id):
+    toUpdate = Animal.objects.get(id=animal_id)
+    toUpdate.animalName = request.POST['animalName']
+    toUpdate.animalType = request.POST['animalType']
+    toUpdate.animalBirth = request.POST['animalBirth']
+    toUpdate.zoo_id = request.POST['zoo_id']
+    toUpdate.save()
+
+    return redirect('/zoo/theAnimals/')
+
+# Hidden route to delete zoo
+def deleteAnimal(request, zoo_id):
+    toDelete = Animal.objects.get(id=animal_id)
+    toDelete.delete()
+
+    return redirect('/zoo/theAnimals/')
