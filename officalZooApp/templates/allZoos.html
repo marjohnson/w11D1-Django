@@ -15,12 +15,13 @@
             <a href='/zoo/'>Zoo Home</a>
             <a href='/zoo/theZoos/'>All Zoos</a>
             <a href='/zoo/theAnimals/'>All Animals</a>
+            <a href='/zoo/theEmployees/'>Employee's</a>
         </nav>
     </header>
     <div class='main'>
         <h3>Here is a list of all our Zoo's</h3>
         <div class='all'>
-            {% for zoo in allZoos %}
+            {% for zoo in zoos %}
             <section class='one'>
                 <h4>{{zoo.zooName}}</h4>
                 <h5>{{zoo.zooLocation}}</h5>

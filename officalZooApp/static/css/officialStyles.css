@@ -66,6 +66,40 @@ body .main .all .one a {
   text-decoration: none;
   padding: 0.5em;
 }
+body .main .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .main .list .zoo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .main .list .zoo .all {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body .main .list .zoo .all .one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #84e2e6b7;
+  margin: 0.5em;
+  padding: 1em;
+  border: 3px groove #5f9ea0;
+}
+body .main .list .zoo .all .one a {
+  color: #4b4848;
+  text-decoration: none;
+  padding: 0.5em;
+}
 body .main .add {
   display: flex;
   flex-direction: column;

@@ -8,7 +8,7 @@ def officialZoo(request):
 # Landing page to view zoos
 def allZoos(request):
     context = {
-        'allZoos': Zoo.objects.all().values()
+        'zoos': Zoo.objects.all()
     }
     return render(request, 'allZoos.html', context)
 
@@ -18,7 +18,7 @@ def createZoo(request):
         return redirect('/zoo/createZoo/')
     Zoo.objects.create(
         zooName=request.POST['zooName'],
-        zooLocation=request.POST['zooLocation']
+        zooLocation=request.POST['zooLocation'],
     )
     return redirect('/zoo/theZoos/')
 
@@ -49,8 +49,7 @@ def deleteZoo(request, zoo_id):
 # Landing page to view all Animals
 def allAnimals(request):
     context = {
-        'allZoos': Zoo.objects.all().values(),
-        'allAnimals': Animal.objects.all().values()
+        'zoos': Zoo.objects.all()
     }
     return render(request, 'allAnimals.html', context)
 
@@ -58,12 +57,11 @@ def allAnimals(request):
 def createAnimal(request):
     if request.method == "GET":
         return redirect('/zoo/createAnimal/')
-    animalZoo = Zoo.objects.get(id = request.POST['zoo_id'])
     Animal.objects.create(
         animalName=request.POST['animalName'],
         animalType=request.POST['animalType'],
         animalBirth=request.POST['animalBirth'],
-        animalZoo=animalZoo
+        zoo_id=request.POST['zoo'],
     )
     return redirect('/zoo/theAnimals/')
 
@@ -72,7 +70,7 @@ def editAnimal(request, animal_id):
     oneAnimal = Animal.objects.get(id=animal_id)
     context = {
         'editAnimal': oneAnimal,
-        'allZoos': Zoo.objects.all().values(),
+        'zoos': Zoo.objects.all().values(),
     }
     return render(request, 'editAnimal.html', context)
 
@@ -87,9 +85,55 @@ def updateAnimal(request, animal_id):
 
     return redirect('/zoo/theAnimals/')
 
-# Hidden route to delete zoo
-def deleteAnimal(request, zoo_id):
+# Hidden route to delete animal
+def deleteAnimal(request, animal_id):
     toDelete = Animal.objects.get(id=animal_id)
     toDelete.delete()
 
     return redirect('/zoo/theAnimals/')
+
+# Landing page to view all Employee's
+def allEmployees(request):
+    context = {
+        'zoos': Zoo.objects.all()
+    }
+    return render(request, 'allEmployees.html', context)
+
+# Hidden route to create Employee
+def createEmployee(request):
+    if request.method == "GET":
+        return redirect('/zoo/createEmployee/')
+    Employee.objects.create(
+        firstName=request.POST['firstName'],
+        lastName=request.POST['lastName'],
+        email=request.POST['email'],
+        zoo_id=request.POST['zoo'],
+    )
+    return redirect('/zoo/theEmployees/')
+
+# Landing page to edit 1 Employee
+def editEmployee(request, employee_id):
+    oneEmployee = Employee.objects.get(id=employee_id)
+    context = {
+        'editEmployee': oneEmployee,
+        'zoos': Zoo.objects.all().values(),
+    }
+    return render(request, 'editEmployee.html', context)
+
+# Hidden route to update Employee
+def updateEmployee(request, employee_id):
+    toUpdate = Employee.objects.get(id=employee_id)
+    toUpdate.firstName = request.POST['firstName']
+    toUpdate.lastName = request.POST['lastName']
+    toUpdate.email = request.POST['email']
+    toUpdate.zoo_id = request.POST['zoo_id']
+    toUpdate.save()
+
+    return redirect('/zoo/theEmployees/')
+
+# Hidden route to delete zoo
+def deleteEmployee(request, employee_id):
+    toDelete = Employee.objects.get(id=employee_id)
+    toDelete.delete()
+
+    return redirect('/zoo/theEmployees/')
