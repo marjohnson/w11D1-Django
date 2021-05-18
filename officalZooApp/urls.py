@@ -19,4 +19,6 @@ urlpatterns = [
     path('<int:employee_id>/editEmployee/', views.editEmployee),
     path('<int:employee_id>/updateEmployee/', views.updateEmployee),
     path('<int:employee_id>/deleteEmployee/', views.deleteEmployee),
+    path('theShows/', views.show),
+    path('createShow/', views.createShow),
 ]

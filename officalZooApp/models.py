@@ -24,3 +24,21 @@ class Shop(models.Model):
     shopName = models.CharField(max_length=45)
     shopDescription = models.CharField(max_length=255)
     shopZoo = models.ManyToManyField(Zoo, related_name='zooShop')
+
+class ShowManager(models.Manager):
+    def validate(self, form):
+        errors = {}
+        if len(form['showName']) < 5:
+            errors['showName'] = 'Please have at least 5 characters in the show name'
+        showNameCheck = self.filter(showName=form['showName'])
+        if showNameCheck:
+            errors['showName'] = 'That Show is already in the system please chose a new name'
+
+        return errors
+
+class Show(models.Model):
+    showName = models.CharField(max_length=45)
+    showInfo = models.CharField(max_length=255)
+    zoo = models.ForeignKey(Zoo, related_name='shows', on_delete=CASCADE)
+
+    objects = ShowManager()

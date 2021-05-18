@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import *
 
 def officialZoo(request):
@@ -137,3 +138,29 @@ def deleteEmployee(request, employee_id):
     toDelete.delete()
 
     return redirect('/zoo/theEmployees/')
+
+# Landing page for Shows
+def show(request):
+    # if request.method == 'post':
+    #     errors = Show.objects.validate(request.POST)
+    #     if errors:
+    #         for err in errors.values():
+    #             messages.error(request, err)
+    #         return redirect('/zoo/theShows/')
+    context = {
+        'zoos': Zoo.objects.all()
+    }
+    return render(request, 'allShows.html', context)
+
+# Hidden route to create new show
+def createShow(request):
+    errors = Show.objects.validate(request.POST)
+    if errors:
+        for err in errors.values():
+            messages.error(request, err)
+        return redirect('/zoo/theShows/')
+    Show.objects.create(
+        showName=request.POST['showName'],
+        zoo_id=request.POST['zoo'],
+    )
+    return redirect('/zoo/theShows/')
