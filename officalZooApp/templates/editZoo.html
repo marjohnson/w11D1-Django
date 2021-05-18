@@ -19,6 +19,8 @@
         </nav>
     </header>
     <div class='main'>
+        <h1>{{editZoo.zooName}}</h1>
+        <h3>Located in: {{editZoo.zooLocation}}</h3>
         <form action='/zoo/{{ editZoo.id }}/updateZoo/' method='post'>
             {% csrf_token %}
             <section>

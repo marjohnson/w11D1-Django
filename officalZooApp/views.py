@@ -38,7 +38,7 @@ def updateZoo(request, zoo_id):
     toUpdate.zooLocation = request.POST['zooLocation']
     toUpdate.save()
 
-    return redirect('/zoo/theZoos/')
+    return redirect(f'/zoo/{zoo_id}/editZoo/')
 
 # Hidden route to delete zoo
 def deleteZoo(request, zoo_id):
@@ -164,3 +164,28 @@ def createShow(request):
         zoo_id=request.POST['zoo'],
     )
     return redirect('/zoo/theShows/')
+
+# Shops landing
+def allShops(request):
+    context = {
+        'zoos': Zoo.objects.all()
+    }
+    return render(request, 'allShops.html', context)
+
+# Hidden route to create shop
+def createShop(request):
+    if request.method == "GET":
+        return redirect('/zoo/createShop/')
+    Animal.objects.create(
+        shopName=request.POST['shopName'],
+        shopDescription=request.POST['shopDescription'],
+        zoo_id=request.POST['shopZoo'],
+    )
+    return redirect('/zoo/theShops/')
+
+def zooInfo(request, zoo_id):
+    oneZoo = Zoo.objects.get(id=zoo_id)
+    context = {
+        'viewInfo': oneZoo,
+    }
+    return render(request, 'zooInfo.html', context)
