@@ -16,6 +16,8 @@
             <a href='/zoo/theZoos/'>All Zoos</a>
             <a href='/zoo/theAnimals/'>All Animals</a>
             <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
         </nav>
     </header>
     <div class='main'>
@@ -30,7 +32,7 @@
         {{employee.email}}
         {% endfor %}
         <h3>Shops at our zoo:</h3>
-        {% for shop in viewInfo.zooShop.all %}
+        {% for shop in viewInfo.shopZoo.all %}
         {{shop.shopName}}
         {% endfor %}
         <h3>Employees at our zoo:</h3>

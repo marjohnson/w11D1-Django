@@ -16,6 +16,8 @@
             <a href='/zoo/theZoos/'>All Zoos</a>
             <a href='/zoo/theAnimals/'>All Animals</a>
             <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
         </nav>
     </header>
     <div class='main'>
@@ -34,6 +36,17 @@
             <button>Save Edits</button>
         </form>
         <a href='/zoo/{{ editZoo.id }}/deleteZoo/'><button>Delete Zoo</button></a>
+        <h3>Add Shops to the zoo:</h3>
+        <form action='/zoo/{{ editZoo.id }}/addShop/' method='post'>
+            {% csrf_token %}
+            <label for='shop_id'>Chose the Shop:</label>
+            <select name='shop_id'>
+                {% for shop in shops %}
+                    <option value='{{shop.id}}'>{{shop.shopName}}</option>
+                {% endfor %}
+            </select>
+            <button>Add Shop</button>
+        </form>
     </div>
 </body>
 </html>
