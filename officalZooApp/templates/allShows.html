@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organization Employee's</title>
+    <title>All Shows</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
 </head>
@@ -19,47 +19,46 @@
             <a href='/zoo/theShows/'>Shows</a>
             <a href='/zoo/theShops/'>Shops</a>
         </nav>
+        {% if messages %}
+        <section class='messages'>
+            {% for message in messages %}
+            <h3 {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+            {% endfor %}
+        </section>
+        {% endif %}
     </header>
     <div class='main'>
         <div class='list'>
             {% for zoo in zoos %}
-            <section class='zoo'>
-                <h3>Employee's at the {{zoo.zooName}}</h3>
-                <section class='all'>
-                    {% for employee in zoo.employees.all %}
-                    <section class='one'>
-                        <h4>{{employee.firstName}} {{employee.lastName}}</h4>
-                        <a href='/zoo/{{employee.id}}/editEmployee/'>Edit Employee</a>
+                <section class='zoo'>
+                    <h3>Shows at the {{zoo.zooName}}</h3>
+                    <section class='all'>
+                        {% for show in zoo.shows.all %}
+                        <section class='one'>
+                            <h4>{{show.showName}}</h4>
+                            <a href='/zoo/{{show.id}}/editShow/'>Edit Show</a>
+                        </section>
+                    {% endfor %}
                     </section>
-                {% endfor %}
                 </section>
-            </section>
-        {% endfor %}
+            {% endfor %}
         </div>
         <div class='add'>
-            <form action='/zoo/createEmployee/' method='post'>
+            <form action='/zoo/createShow/' method='post'>
                 {% csrf_token %}
                 <section class='row'>
-                    <label for='firstName'>First Name: </label>
-                    <input type='text' id='firstName' name='firstName'>
+                    <label for='showName'>Show Name: </label>
+                    <input type='text' id='showName' name='showName'>
                 </section>
                 <section class='row'>
-                    <label for='lastName'>Last Name: </label>
-                    <input type='text' id='lastName' name='lastName'>
-                </section>
-                <section class='row'>
-                    <label for='email'>Email Address: </label>
-                    <input type='email' id='email' name='email'>
-                </section>
-                <section class='row'>
-                    <label for='zoo'>Select the Employee's Zoo: </label>
+                    <label for='zoo'>Select the Zoo: </label>
                     <select name='zoo' id='zoo'>
                         {% for zoo in zoos %}
                         <option value='{{zoo.id}}'>{{zoo.zooName}}</option>
                         {% endfor %}
                     </select>
                 </section>
-                <button>Add New Employee</button>
+                <button>Add New Show</button>
             </form>
         </div>
     </div>

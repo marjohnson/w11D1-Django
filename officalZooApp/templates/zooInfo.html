@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoo Home</title>
+    <title>{{viewInfo.zooName}}</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
 </head>
 <body>
     <header>
-        <h1>Welcome to the Official Zoo App</h1>
         <nav>
             <a href='/'>Website Home</a>
             <a href='/zoo/'>Zoo Home</a>
@@ -22,12 +21,25 @@
         </nav>
     </header>
     <div class='main'>
-        <h2>Amazon Career Choice Zoo Organization</h2>
-        <p>Here you will be able to see the different Zoo's that we have in our organization as well as the animals that are at each zoo.</p>
-        <p>We have created a way for you to add your own Zoo, Animals, and Employee's</p>
+        <h1>{{viewInfo.zooName}}</h1>
+        <h3>Located in: {{viewInfo.zooLocation}}</h3>
+        <h3>Animals at our zoo:</h3>
+        {% for animal in viewInfo.animals.all %}
+        {{animal.animalName}}
+        {% endfor %}
+        <h3>Employees at our zoo:</h3>
+        {% for employee in viewInfo.employees.all %}
+        {{employee.email}}
+        {% endfor %}
+        <h3>Shops at our zoo:</h3>
+        {% for shop in viewInfo.shopZoo.all %}
+        {{shop.shopName}}
+        {% endfor %}
+        <h3>Employees at our zoo:</h3>
+        {% for show in viewInfo.shows.all %}
+        {{show.showName}}
+        {% endfor %}
+        
     </div>
-    <footer>
-
-    </footer>
 </body>
 </html>

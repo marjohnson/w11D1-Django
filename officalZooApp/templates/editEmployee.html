@@ -16,9 +16,13 @@
             <a href='/zoo/theZoos/'>All Zoos</a>
             <a href='/zoo/theAnimals/'>All Animals</a>
             <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
         </nav>
     </header>
     <div class='main'>
+        <h1>{{editEmployee.firstName}} {{editEmployee.lastName}}</h1>
+        <h3>{{editEmployee.email}}</h3>
         <form action='/zoo/{{ editEmployee.id }}/updateEmployee/' method='post'>
             {% csrf_token %}
             <section>

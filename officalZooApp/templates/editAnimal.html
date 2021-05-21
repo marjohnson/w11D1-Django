@@ -16,9 +16,14 @@
             <a href='/zoo/theZoos/'>All Zoos</a>
             <a href='/zoo/theAnimals/'>All Animals</a>
             <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
         </nav>
     </header>
     <div class='main'>
+        <h1>{{editAnimal.animalName}}</h1>
+        <h3>{{editAnimal.animalType}}</h3>
+        <p>{{editAnimal.animalBirth}}</p>
         <form action='/zoo/{{ editAnimal.id }}/updateAnimal/' method='post'>
             {% csrf_token %}
             <section>
