@@ -13,6 +13,7 @@
         <nav>
             <a href='/'>Main Project Home</a>
         </nav>
+        <button class='dkMode'>Toggle Dark/Light Mode</button>
         <a href='/gameApp/clearGame'><button>Reset Game</button></a>
     </header>
     <div class='main'>
@@ -39,5 +40,7 @@
         <p>{{p}}</p>
         {% endfor %}
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/gameScripts.js' %}"></script>
 </body>
 </html>

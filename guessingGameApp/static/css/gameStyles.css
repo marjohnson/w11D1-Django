@@ -1,5 +1,5 @@
 body {
-  background-color: magenta;
+  background-color: #ff00ff;
   color: black;
   display: flex;
   flex-direction: column;
@@ -60,4 +60,8 @@ body footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+body.darkMode {
+  background-color: #380d38;
+  color: white;
 }
