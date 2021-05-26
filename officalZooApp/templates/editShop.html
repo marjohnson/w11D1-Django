@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{editShop.shopName}}</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Website Home</a>
+            <a href='/zoo/'>Zoo Home</a>
+            <a href='/zoo/theZoos/'>All Zoos</a>
+            <a href='/zoo/theAnimals/'>All Animals</a>
+            <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <h1>{{editShop.shopName}}</h1>
+        <h3>{{editShop.shopDescription}}</h3>
+        <form action='/zoo/{{ editShop.id }}/updateShop/' method='post'>
+            {% csrf_token %}
+            <section>
+                <label for='shopName'>Shop Name:</label>
+                <input type='text' name='shopName' id='shopName' value="{{editShop.shopName}}">
+            </section>
+            <section>
+                <label for='shopDescription'>Shop Description:</label>
+                <input type='text' name='shopDescription' id='shopDescription' value="{{editShop.shopDescription}}">
+            </section>
+            <button>Save Edits</button>
+        </form>
+        <a href='/zoo/{{ editShop.id }}/deleteShop/'><button>Delete Shop</button></a>
+    </div>
+</body>
+</html>

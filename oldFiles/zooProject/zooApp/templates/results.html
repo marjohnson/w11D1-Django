@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Page</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <a href='/'>Home</a>
+        <a href='/test/'>Test page</a>
+        <a href='/about/'>About Page</a>
+        <a href='/contributors/'>Contributors</a>
+        <a href='/form/'>Sign up form</a>
+        <a href='/the-shop'>The Ninja Shop</a>
+    </nav>
+    <h1>New Member Names:</h1>
+    <p>Member's Name: {{ results.memberName }}</p>
+    <a href='/form/'>Back to form</a>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{editAnimal.animalName}}</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Website Home</a>
+            <a href='/zoo/'>Zoo Home</a>
+            <a href='/zoo/theZoos/'>All Zoos</a>
+            <a href='/zoo/theAnimals/'>All Animals</a>
+            <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <h1>{{editAnimal.animalName}}</h1>
+        <h3>{{editAnimal.animalType}}</h3>
+        <p>{{editAnimal.animalBirth}}</p>
+        <form action='/zoo/{{ editAnimal.id }}/updateAnimal/' method='post'>
+            {% csrf_token %}
+            <section>
+                <label for='animalName'>Animal Name:</label>
+                <input type='text' name='animalName' id='animalName' value="{{editAnimal.animalName}}">
+            </section>
+            <section>
+                <label for='animalType'>Animal Type:</label>
+                <input type='text' name='animalType' id='animalType' value="{{editAnimal.animalType}}">
+            </section>
+            <section>
+                <label for='animalBirth'>Animal Type:</label>
+                <input type='date' name='animalBirth' id='animalBirth' value="{{editAnimal.animalBirth}}">
+            </section>
+            <section>
+                <label for='animalZoo'>Select the Zoo: </label>
+                <select name='zoo_id' id='zoo_id'>
+                    {% for zoo in zoos %}
+                    <option value='{{zoo.id}}'>{{zoo.zooName}}</option>
+                    {% endfor %}
+                </select>
+            </section>
+            <button>Save Edits</button>
+        </form>
+        <a href='/zoo/{{ editAnimal.id }}/deleteAnimal/'><button>Delete Animal</button></a>
+    </div>
+</body>
+</html>

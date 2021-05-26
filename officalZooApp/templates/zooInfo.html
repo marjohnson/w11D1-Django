@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{viewInfo.zooName}}</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Website Home</a>
+            <a href='/zoo/'>Zoo Home</a>
+            <a href='/zoo/theZoos/'>All Zoos</a>
+            <a href='/zoo/theAnimals/'>All Animals</a>
+            <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <h1>{{viewInfo.zooName}}</h1>
+        <h3>Located in: {{viewInfo.zooLocation}}</h3>
+        <h3>Animals at our zoo:</h3>
+        {% for animal in viewInfo.animals.all %}
+        {{animal.animalName}}
+        {% endfor %}
+        <h3>Employees at our zoo:</h3>
+        {% for employee in viewInfo.employees.all %}
+        {{employee.email}}
+        {% endfor %}
+        <h3>Shops at our zoo:</h3>
+        {% for shop in viewInfo.shopZoo.all %}
+        {{shop.shopName}}
+        {% endfor %}
+        <h3>Employees at our zoo:</h3>
+        {% for show in viewInfo.shows.all %}
+        {{show.showName}}
+        {% endfor %}
+        
+    </div>
+</body>
+</html>
