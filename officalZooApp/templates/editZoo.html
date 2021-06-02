@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{editZoo.zooName}}</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Website Home</a>
+            <a href='/zoo/'>Zoo Home</a>
+            <a href='/zoo/theZoos/'>All Zoos</a>
+            <a href='/zoo/theAnimals/'>All Animals</a>
+            <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <h1>{{editZoo.zooName}}</h1>
+        <h3>Located in: {{editZoo.zooLocation}}</h3>
+        <form action='/zoo/{{ editZoo.id }}/updateZoo/' method='post'>
+            {% csrf_token %}
+            <section>
+                <label for='zooName'>Zoo Name:</label>
+                <input type='text' name='zooName' id='zooName' value="{{editZoo.zooName}}">
+            </section>
+            <section>
+                <label for='zooLocation'>Zoo Location:</label>
+                <input type='text' name='zooLocation' id='zooLocation' value="{{editZoo.zooLocation}}">
+            </section>
+            <button>Save Edits</button>
+        </form>
+        <a href='/zoo/{{ editZoo.id }}/deleteZoo/'><button>Delete Zoo</button></a>
+        <h3>Add Shops to the zoo:</h3>
+        <form action='/zoo/{{ editZoo.id }}/addShop/' method='post'>
+            {% csrf_token %}
+            <label for='shop_id'>Chose the Shop:</label>
+            <select name='shop_id'>
+                {% for shop in shops %}
+                    <option value='{{shop.id}}'>{{shop.shopName}}</option>
+                {% endfor %}
+            </select>
+            <button>Add Shop</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Animals</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/officialStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Website Home</a>
+            <a href='/zoo/'>Zoo Home</a>
+            <a href='/zoo/theZoos/'>All Zoos</a>
+            <a href='/zoo/theAnimals/'>All Animals</a>
+            <a href='/zoo/theEmployees/'>Employee's</a>
+            <a href='/zoo/theShows/'>Shows</a>
+            <a href='/zoo/theShops/'>Shops</a>
+        </nav>
+    </header>
+    <div class='main'>
+        <div class='list'>
+            {% for zoo in zoos %}
+                <section class='zoo'>
+                    <h3>Shops at the {{zoo.zooName}}</h3>
+                    <section class='all'>
+                        {% for shop in zoo.shops.all %}
+                        <section class='one'>
+                            <h4>{{shop.shopName}}</h4>
+                            <h5>{{shop.shopDescription}}</h5>
+                            <a href='/zoo/{{shop.id}}/editShop/'>Edit Shop</a>
+                        </section>
+                    {% endfor %}
+                    </section>
+                </section>
+            {% endfor %}
+            {% for shop in shops %}
+            <section class='one'>
+                <h4>{{shop.shopName}}</h4>
+                <h5>{{shop.shopDescription}}</h5>
+                <a href='/zoo/{{shop.id}}/editShop/'>Edit Shop</a>
+            </section>
+        {% endfor %}
+        </div>
+        <div class='add'>
+            <form action='/zoo/createShop/' method='post'>
+                {% csrf_token %}
+                <section class='row'>
+                    <label for='shopName'>Shop Name: </label>
+                    <input type='text' id='shopName' name='shopName'>
+                </section>
+                <section class='row'>
+                    <label for='shopDescription'>Shop Description: </label>
+                    <input type='text' id='shopDescription' name='shopDescription'>
+                </section>
+                <button>Add New Shop</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

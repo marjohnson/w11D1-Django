@@ -1,0 +1,108 @@
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+body {
+    background-color: darkcyan;
+    color: black;
+    .flexcolumn();
+
+    header {
+        .flexcolumn();
+
+        nav {
+            margin: 1em;
+
+            a {
+                padding: 1em;
+                color: white;
+                text-decoration: none;
+            }
+        }        
+    }
+
+    .jquery {
+        nav {
+            a {
+                display: none;
+            }
+        }
+        .magic {
+            margin: 1em;
+        }
+    }
+
+    .main {
+        .flexcolumn();
+
+        img {
+            width: 20%;
+        }
+
+        .apps {
+            .flexrow();
+            flex-wrap: wrap;
+
+            .theApp {
+                .flexcolumn();
+                border: 5px groove cyan;
+                margin: 1em;
+                padding: 1em;
+                width: 250px;
+                text-align: center;
+
+                button {
+                    background-color: cyan;
+                }
+            }
+        }
+
+        section {
+            .flexcolumn();
+
+            .imgs {
+                .flexrow();
+
+                img {
+                    width: 10%;
+                }
+            }
+            button {
+                margin: 1em;
+            }
+        }
+
+        ul {
+            .flexcolumn();
+            margin: 1em;
+
+            li {
+                align-self: flex-start;
+            }
+        }
+
+        form {
+            .flexrow();
+            margin: 1em;
+
+            label, input, button {
+                margin: .3em;
+            }
+        }
+    }
+
+    footer {
+        .flexcolumn();
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static '/css/gameStyles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href='/'>Main Project Home</a>
+        </nav>
+        <button class='dkMode'>Toggle Dark/Light Mode</button>
+        <a href='/gameApp/clearGame'><button>Reset Game</button></a>
+    </header>
+    <div class='main'>
+        {% if current_user == 1 %}
+        <h1>Chose a number {{user1}}</h1>
+        {% else %}
+        <h1>Guess the number {{user2}}</h1>
+        {% endif %}
+    
+        <form action="/gameApp/process_game" method="post">
+    
+            {% csrf_token %}
+            <select name="chosen_number">
+                {% for num in number_range %}
+                <option value="{{num}}">{{num}}</option>
+                {% endfor %}
+            </select>
+            <input type="hidden" name="current_user" value="{{current_user}}">
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <footer>
+        {% for p in footer %}
+        <p>{{p}}</p>
+        {% endfor %}
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/gameScripts.js' %}"></script>
+</body>
+</html>
