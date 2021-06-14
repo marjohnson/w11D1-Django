@@ -14,6 +14,7 @@
         <nav>
             <a href='/'>Main Project Home</a>
         </nav>
+        <button class='dkMode'>Toggle Dark/Light Mode</button>
     </header>
     <div class='main'>
         <h3>Enter names for both players and the max number for the range to guess from </h3>
@@ -40,5 +41,7 @@
         <p>{{p}}</p>
         {% endfor %}
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/gameScripts.js' %}"></script>
 </body>
 </html>
